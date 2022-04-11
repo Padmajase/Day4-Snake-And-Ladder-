@@ -12,7 +12,7 @@ class SnakeAndLadder
 		System.out.println("Start position of player is  0 ");
 		int currentPosition = 0;
 
-		while (currentPosition != 100)
+		do
 		{	
 			Random rand = new Random();
 			int nextPosition = rand.nextInt(6) + 1;
@@ -35,7 +35,7 @@ class SnakeAndLadder
 				System.out.println("player stays in same  position i.e. at" + currentPosition);
 				int currentPosition = currentposition;		
 			}
-		}
+		}while (currentPosition <= 100)
 	
 	}
 }
