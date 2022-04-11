@@ -10,40 +10,66 @@ class SnakeAndLadder
 	{
 	
 		System.out.println("Start position of player is  0 ");
-		int currentPosition = 0;
-		int count = 0;
+		int firstPlayerCurrentPosition = 0;
+		int secondPlayerCurrentPosition = 0;
+		int firstPlayerCount = 0;
+		int secondPlayerCount = 0;
 
 		
 		Random rand = new Random();
 
 		do
 		{	
-			int nextPosition = rand.nextInt(6) + 1;
-			count ++;
+			int firstPlayerNextPosition = rand.nextInt(6) + 1;
+			firstPlayerCount ++;
+			int secondPlayerNextPosition = rand.nextInt(6) + 1;
+			secondPlayerCount ++;
 	
-			System.out.println("after rolling die, number is  " +nextPosition);
+			System.out.println("after rolling die, number is  " + firstPlayerNextPosition);
 
-			if(nextPosition == ladder)
-			{		
-				System.out.println("player moves ahead by  " + nextPosition + "number");
-				int currentPosition+ = nextPosition;
-				System.out.println("current position of player is  " + currentPosition);	
-			}
-			else if(nextPosition == snake)
-			{	
-				System.out.println("player moves behind by  " + nextPosition + "number");
-				int currentPosition- = nextPosition;
-				System.out.println("current position of player is  " + currentPosition);
-			}
-			else
+			for( ;firstPlayerNextPosition; )
 			{
-				System.out.println("player stays in same  position i.e. at" + currentPosition);
-				int currentPosition = currentposition;
-				System.out.println("current position of player is  " + currentPosition);		
+				if(firstPlayerNextPosition == ladder)
+				{		
+					continue;	
+				}
+				else if(firstPlayerNextPosition == snake)
+				{	
+					System.out.println("player 1moves behind by  " + firstPlayerNextPosition + "number");
+					int firstPlayerCurrentPosition- = firstPlayerNextPosition;
+					System.out.println("current position of player is  " + firstPlayerCurrentPosition);
+				}
+				else
+				{
+					System.out.println("player 1 stays in same  position i.e. at" + currentPosition);
+					int firstPlayerCurrentPosition = currentposition;
+					System.out.println("current position of player is  " + firstPlayerCurrentPosition);		
+				}
 			}
-		}while (currentPosition <= 100);
 
-		System.out.println("player plays dice   " + count + "  times to Win");
+			for( ;secondPlayerNextPosition; )
+			{
+				if(secondPlayerNextPosition == ladder)
+				{		
+					continue;	
+				}
+				else if(secondPlayerNextPosition == snake)
+				{	
+					System.out.println("player 2 moves behind by  " + secondPlayerNextPosition + "number");
+					int secondPlayerCurrentPosition- = secondPlayerNextPosition;
+					System.out.println("current position of player is  " + secondPlayerCurrentPosition);
+				}
+				else
+				{
+					System.out.println("player  2 stays in same  position i.e. at" + secondPlayerCurrentPosition);
+					int secondPlayerCurrentPosition = secondPlayerCurrentposition;
+					System.out.println("current position of player is  " + secondPlayerCurrentPosition);		
+				}
+			}
+		}while (firstPlayerCurrentPosition >= 100 || secondPlayerCurrentPosition >= 100);
+
+		System.out.println("player 1 plays dice   " + firstPlayerCount + "  times to Win");
+		System.out.println("player 2 plays dice   " + secondPlayerCount + "  times to Win");
 	
 	}
 }
